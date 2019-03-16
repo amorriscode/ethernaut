@@ -1,8 +1,10 @@
-# Description
+# Hello Ethernaut
+
+## Description
 
 This level was a simple walk through to guide you through interacting with the contract in the browser.
 
-# Solution
+## Solution
 
 1. Call `contract.info()`
 2. Call `contract.info1()`
