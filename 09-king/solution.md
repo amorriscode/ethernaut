@@ -12,4 +12,4 @@ When you submit the instance back to the level, the level is going to reclaim ki
 
 The [docs warn us](https://solidity.readthedocs.io/en/v0.5.3/contracts.html#fallback-function) that fallback functions that aren't payable will fail when transactions are send to them. The King contract wants to send money to the king after they are dethroned. Knowing this we can solve the problem.
 
-1. Created a KingSlayer contract that sends 1 ETH to the contract; it's fallback is not payable and therefore destroys the throne
+1. Created a `KingSlayer` contract that sends 1 ETH to the contract; it's fallback is not payable and therefore destroys the throne
