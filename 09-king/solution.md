@@ -6,6 +6,30 @@ Such a fun game. Your goal is to break it.
 
 When you submit the instance back to the level, the level is going to reclaim kingship. You will beat the level if you can avoid such a self proclamation.
 
+```solidity
+pragma solidity ^0.4.18;
+
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+
+contract King is Ownable {
+
+  address public king;
+  uint public prize;
+
+  function King() public payable {
+    king = msg.sender;
+    prize = msg.value;
+  }
+
+  function() external payable {
+    require(msg.value >= prize || msg.sender == owner);
+    king.transfer(msg.value);
+    king = msg.sender;
+    prize = msg.value;
+  }
+}
+```
+
 ## Solution
 
 > Contracts that receive Ether directly (without a function call, i.e. using send or transfer) but do not define a fallback function throw an exception, sending back the Ether (this was different before Solidity v0.4.0). So if you want your contract to receive Ether, you have to implement a payable fallback function.
